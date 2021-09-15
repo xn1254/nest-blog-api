@@ -23,12 +23,13 @@ exports.WebServerModule = void 0;
 const common_1 = __webpack_require__(3);
 const web_server_controller_1 = __webpack_require__(4);
 const web_server_service_1 = __webpack_require__(5);
+const user_controller_1 = __webpack_require__(6);
 let WebServerModule = class WebServerModule {
 };
 WebServerModule = __decorate([
     (0, common_1.Module)({
         imports: [],
-        controllers: [web_server_controller_1.WebServerController],
+        controllers: [web_server_controller_1.WebServerController, user_controller_1.UserController],
         providers: [web_server_service_1.WebServerService],
     })
 ], WebServerModule);
@@ -106,6 +107,28 @@ WebServerService = __decorate([
 exports.WebServerService = WebServerService;
 
 
+/***/ }),
+/* 6 */
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.UserController = void 0;
+const common_1 = __webpack_require__(3);
+let UserController = class UserController {
+};
+UserController = __decorate([
+    (0, common_1.Controller)('user')
+], UserController);
+exports.UserController = UserController;
+
+
 /***/ })
 /******/ 	]);
 /************************************************************************/
@@ -144,7 +167,7 @@ const core_1 = __webpack_require__(1);
 const web_server_module_1 = __webpack_require__(2);
 async function bootstrap() {
     const app = await core_1.NestFactory.create(web_server_module_1.WebServerModule);
-    await app.listen(3000);
+    await app.listen(3001);
 }
 bootstrap();
 
