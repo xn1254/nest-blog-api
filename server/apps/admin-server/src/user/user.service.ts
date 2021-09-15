@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-09-15 14:09:06
- * @LastEditTime: 2021-09-15 16:57:20
+ * @LastEditTime: 2021-09-15 17:27:20
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \个人博客\server\apps\admin-server\src\user\user.service.ts
@@ -33,8 +33,7 @@ export class UserService {
     }
 
     async registerOne(data: RegisterDto): Promise<RegisterDto> {
-        const result =  await this.usersRepository.create(data)
-        console.log('1111')
+        const result = await this.usersRepository.create(data)
         return result
     }
 }
