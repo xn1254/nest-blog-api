@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-09-14 15:51:09
- * @LastEditTime: 2021-09-15 13:52:14
+ * @LastEditTime: 2021-09-15 16:33:26
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \个人博客\server\apps\admin-server\src\admin-server.module.ts
@@ -30,7 +30,7 @@ import { AdminUser } from './user/user.entity';
       synchronize: true,
     }),
   ],
-  controllers: [AdminServerController, UserController],
+  controllers: [AdminServerController],
   providers: [AdminServerService],
 })
 export class AdminServerModule {}

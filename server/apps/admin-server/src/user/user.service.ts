@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-09-15 14:09:06
- * @LastEditTime: 2021-09-15 16:17:01
+ * @LastEditTime: 2021-09-15 16:57:20
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \个人博客\server\apps\admin-server\src\user\user.service.ts
@@ -9,6 +9,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
+import RegisterDto from './dto/register.dto';
 import { AdminUser } from './user.entity';
 
 // crud操作
@@ -31,8 +32,9 @@ export class UserService {
         await this.usersRepository.delete(id)
     }
 
-    async registerOne(data: AdminUser): Promise<any> {
+    async registerOne(data: RegisterDto): Promise<RegisterDto> {
         const result =  await this.usersRepository.create(data)
+        console.log('1111')
         return result
     }
 }

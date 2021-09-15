@@ -1,13 +1,14 @@
 /*
  * @Author: your name
  * @Date: 2021-09-15 09:36:23
- * @LastEditTime: 2021-09-15 16:20:32
+ * @LastEditTime: 2021-09-15 16:53:10
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \个人博客\server\apps\admin-server\src\user\user.controller.ts
  */
 import { Body, Controller, Delete, Get, Post, Query } from '@nestjs/common';
-import { ApiParam, ApiQuery, ApiTags } from '@nestjs/swagger';
+import { ApiBody, ApiParam, ApiQuery, ApiTags } from '@nestjs/swagger';
+import RegisterDto from './dto/register.dto';
 import { UserService } from './user.service'
 
 // api接口
@@ -42,17 +43,12 @@ export class UserController {
     }
 
     @Post('registerUser')
-    @ApiQuery({
-        name: 'username',
-        description: '用户名',
+    @ApiBody({
+        type: RegisterDto,
+        description: '用户名和密码',
         required: true
     })
-    @ApiQuery({
-        name: 'password',
-        description: '密码',
-        required: true
-    })
-    updateById(@Body() req) {
+    registerUser(@Body() req: RegisterDto) {
         return this.UserService.registerOne(req)
     }
 }
